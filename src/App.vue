@@ -1,18 +1,19 @@
 <template>
-  <div>
-    <InputPage/>
-    <router-view></router-view>
+  <div id="nav">
+    <router-link to="/input">Kurs erstellen</router-link>
+    <router-link to="/myCourses">Meine Kurse</router-link>
   </div>
+    <router-view/>
 </template>
 
 <script>
 //import HelloWorld from './components/HelloWorld.vue'
-import InputPage from './components/InputPage.vue'
+//import InputPage from './components/InputPage.vue'
 
 export default {
   name: 'App',
   components: {
-    InputPage
+    
 }
 }
 </script>
