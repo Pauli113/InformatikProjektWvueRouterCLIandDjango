@@ -1,5 +1,19 @@
 import { createApp } from 'vue'
-import VueRouter from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import App from './App.vue'
+import InputPage from './components/InputPage.vue'
 
-createApp(App).use(VueRouter).mount('#app')
+
+const routes = [
+    //{path:'/courses'}
+    {path:'/input',component:InputPage}
+]
+
+const router = createRouter({
+    history: createWebHistory(),
+    routes
+})
+
+
+createApp(App).use(router).mount('#app')
+
