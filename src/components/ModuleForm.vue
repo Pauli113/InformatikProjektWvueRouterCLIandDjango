@@ -314,6 +314,11 @@ export default {
 
 <script>
 //import moduleInputs from '../variables'
+/* import * as fs from 'fs'
+fs = require('fs');
+const YAML = require("js-yaml")
+
+const raw = fs.readFileSync("@/data/assessment.yaml") */
 
 export default {
     data(){
@@ -341,7 +346,8 @@ export default {
             status:'',
             location:'',
             po:'',
-            further_information:''
+            further_information:'',
+            assessment:''
         }
 
     },
@@ -353,7 +359,7 @@ export default {
             
         },
         fillModuleArray(){
-            //let input = []
+            
         }
     }
 }
