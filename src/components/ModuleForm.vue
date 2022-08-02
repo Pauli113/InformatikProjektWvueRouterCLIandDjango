@@ -22,6 +22,8 @@ import CostumInput from './CustomInput.vue'
 import moduleInputs from '../variables'
 
 export default {
+  watch: {
+  },
   name: 'HelloWorld',
   props: {
   },
@@ -222,17 +224,21 @@ export default {
         <p>responsibilities</p>
         <label>coordinator</label>
         <select v-model="coordinator">
-            <option value="person.hkl">person.hkl</option>
+            <option v-for="(item,index) in person_list" :value="index" v-bind:key="index">
+            {{item}}
+            </option>
         </select>
         <label>lecturers</label>
-        <select v-model="lecturers">
-            <option value="person.hkl">person.hkl</option>
+        <select v-model="lectures">
+            <option v-for="(item,index) in person_list" :value="index" v-bind:key="index">
+            {{item}}
+            </option>
         </select>
 
+         
+
         <label>assessment_method</label>
-        <select v-model="assessment_method">
-            <option value="written-exam">written-exam</option>
-        </select>
+        <input type="assessment_method" v-model="assessment_method">
 
         <label>workload</label>
         <input type="workload" v-model="workload">
@@ -251,7 +257,7 @@ export default {
 
         <label>recommended_prerequisites</label>
         <input type="recommended_prerequisites" v-model="recommended_prerequisites">
-        
+
         <label>required_prerequisites</label>
         <input type="required_prerequisites" v-model="required_prerequisites">
 
@@ -282,48 +288,20 @@ export default {
 
 
         <button>Modul hinzufügen bzw ändern</button>
-
-        <p>module_code: {{module_code}}</p>
-        <p>module_title: {{module_title}}</p>
-        <p>module_abbrev: {{module_abbrev}}</p>
-        <p>module_type: {{module_type}}</p>
-        <p>creditPoints: {{credit_points}}</p>
-        <p>language: {{language}}</p>
-        <p>duration_of_module: {{duration_of_module}}</p>
-        <p>recommended_semester: {{recommended_semester}}</p>
-        <p>frequency: {{frequency}}</p>
-        <p>responsibilities</p>
-        <p>coordinator: {{coordinator}}</p>
-        <p>lecturers: {{lecturers}}</p>
-        <p>assessment_method: {{assessment_method}}</p>
-        <p>workload: {{workload}}</p>
-        <p>lecture: {{lecture}}</p>
-        <p>seminar: {{seminar}}</p>
-        <p>practical: {{practical}}</p>
-        <p>self_study: {{self_study}}</p>
-        <p>recommended_prerequisites: {{recommended_prerequisites}}</p>
-        <p>required_prerequisites: {{required_prerequisites}}</p>
-        <p>status: {{status}}</p>
-        <p>location: {{location}}</p>
-        <p>po: {{po}}</p>
-        <p>furtherInformation: {{further_information}}</p>
     </form>
-
+    {{module_code}}
+    {{}}
+    
     
 </template>
 
 <script>
-//import moduleInputs from '../variables'
-/* import * as fs from 'fs'
-fs = require('fs');
-const YAML = require("js-yaml")
-
-const raw = fs.readFileSync("@/data/assessment.yaml") */
-
 export default {
+    components:{
+                
+    },
     data(){
         return{
-            //todo check if all data is equal to v-modells
             module_code:'',
             module_title:'',
             module_abbrev:'',
@@ -334,6 +312,16 @@ export default {
             recommended_semester:'',
             frequency:'',
             coordinator: '',
+            person_list:{
+                "all":"all",
+                "nn":"nn",
+                "tbb":"tbb",
+                "sbe":"sbe",
+                "bbe":"bbe",
+                "mboe":"mboe",
+                "hkl":"hkl",
+                "sku":"sku"
+            },
             lecturers:'',
             assessment_method:'',
             workload:'',
