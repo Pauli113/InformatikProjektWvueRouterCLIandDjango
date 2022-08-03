@@ -229,7 +229,7 @@ export default {
             </option>
         </select>
         <label>lecturers</label>
-        <select v-model="lectures">
+        <select v-model="lecturers">
             <option v-for="(item,index) in person_list" :value="index" v-bind:key="index">
             {{item}}
             </option>
@@ -289,13 +289,12 @@ export default {
 
         <button>Modul hinzufügen bzw ändern</button>
     </form>
-    {{module_code}}
-    {{}}
     
     
 </template>
 
 <script>
+
 export default {
     components:{
                 
@@ -320,8 +319,24 @@ export default {
                 "bbe":"bbe",
                 "mboe":"mboe",
                 "hkl":"hkl",
-                "sku":"sku"
+                "sku":"sku",
+                "ama":"ama",
+                "psc":"psc",
+                "fvi":"fvi",
+                "ska":"ska",
+                "wko":"wko",
+                "mei":"mei",
+                "cko":"cko",
+                "lkoe":"lkoe",
+                "men":"men",
+                "tkl":"tkl",
+                "hfa":"hfa",
+                "mza":"mza",
+                "hst":"hst",
+                "hgue":"hgue",
+                "mwi":"mwi"
             },
+            lang_list:[],
             lecturers:'',
             assessment_method:'',
             workload:'',
@@ -342,6 +357,24 @@ export default {
     methods:{
         handleSubmit(){
             alert("Modul hinzufügt bzw geändert")
+            const fs = require('fs')
+
+            const lang = fs.readFileSync('./data/lang.yaml', {encoding: 'utf-8'});
+            console.log(lang);
+
+            const yaml = require('js-yaml');
+            
+
+            // Get document, or throw exception on error
+            try {
+                const doc = yaml.load(fs.readFileSync('./data/lang.yaml', 'utf8'));
+                //console.log(doc);
+                //todo parse string
+                const langString = String(doc)
+                console.log(langString)
+            } catch (e) {
+                console.log(e);
+            }
         },
         assignValues(){
             
