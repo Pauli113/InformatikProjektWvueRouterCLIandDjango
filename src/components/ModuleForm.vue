@@ -188,7 +188,7 @@ export default {
 
         <label>module_type</label>
         <select v-model="module_type">
-            <option :value="module_type.type" v-for="(module_types) in module_types_list" :key="module_types.type">{{module_types.type}}</option>
+            <option :value="type.type" v-for="(type) in module_types_list" :key="type.type">{{type.type}}</option>
         </select>
 
         <label>credit_points</label>
@@ -295,8 +295,8 @@ export default {
 <script>
 //json file imports
 let langs = require('../data/lang.js')
-let assessment_methods = require('../data/assessment.js')
-let module_types = require('../data/module_type.js')
+let assessmentMethods = require('../data/assessment.js')
+let moduleTypes = require('../data/type.js')
 export default {
     components:{
              
@@ -312,10 +312,11 @@ export default {
             lang_list: langs,
             //assessment list
             assessment_method:'',
-            assessment_method_list: assessment_methods,
+            assessment_method_list: assessmentMethods,
             //module type list
             module_type:'',
-            module_types_list: module_types,
+            module_types_list: moduleTypes,
+            //
             duration_of_module:'',
             recommended_semester:'',
             frequency:'',
