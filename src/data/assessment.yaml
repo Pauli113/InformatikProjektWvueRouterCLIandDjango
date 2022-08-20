@@ -63,7 +63,7 @@ e-assessment:
   en_label: --
 
 multiple-choice:
-  de_label: Multiple-Choice-Tests mit Punnkten für die Klausur
+  de_label: Multiple-Choice-Tests mit Punkten für die Klausur
   en_label: --
 
 depends:

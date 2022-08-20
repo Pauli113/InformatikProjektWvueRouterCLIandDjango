@@ -188,14 +188,13 @@ export default {
 
         <label>module_type</label>
         <select v-model="module_type">
-            <option value="mandatory">mandatory</option>
-             <option value="voluntary">voluntary</option>
+            <option :value="module_types.type" v-for="(module_types) in module_types_list" :key="module_types.type">{{module_types.type}}</option>
         </select>
 
         <label>credit_points</label>
         <input type="credit_points" v-model="credit_points">
 
-        <label for="lang">language</label>
+        <label>language</label>
         <select v-model="language">
             <option :value="lang.lang" v-for="(lang) in lang_list" :key="lang.lang">{{lang.lang}}</option>
         </select>
@@ -213,13 +212,12 @@ export default {
             <option value="5">5</option>
             <option value="6">6</option>
         </select>
-
+        
         <label>frequency</label>
-        <select v-model="frequency">
-            <option value="season.ws">season.ws</option>
-            <option value="season.ss">season.ss</option>
-        </select>
+        <select v-model="frequency"></select>
 
+        
+     
         <p>responsibilities</p>
         <label>coordinator</label>
         <select v-model="coordinator">
@@ -235,9 +233,16 @@ export default {
         </select>
 
          
-
+        <label>language</label>
+        <select v-model="language">
+            <option :value="lang.lang" v-for="(lang) in lang_list" :key="lang.lang">{{lang.lang}}</option>
+        </select>
+        
         <label>assessment_method</label>
-        <input type="assessment_method" v-model="assessment_method">
+        <select v-model="assessment_method">
+            <option :value="assessment.assessment" v-for="(assessment) in assessment_method_list" :key="assessment.assessment">{{assessment.assessment}}</option>
+        </select>
+       
 
         <label>workload</label>
         <input type="workload" v-model="workload">
@@ -293,19 +298,29 @@ export default {
 </template>
 
 <script>
+//json file imports
 let langs = require('../data/lang.js')
+let assessment_methods = require('../data/assessment.js')
+let module_types = require('../data/module_type.js')
 export default {
     components:{
-                
+             
     },
     data(){
         return{
             module_code:'',
             module_title:'',
             module_abbrev:'',
-            module_type:'',
             credit_points:'',
+            //language list
             language:'',
+            lang_list: langs,
+            //assessment list
+            assessment_method:'',
+            assessment_method_list: assessment_methods,
+            //module type list
+            module_type:'',
+            module_types_list: module_types,
             duration_of_module:'',
             recommended_semester:'',
             frequency:'',
@@ -335,10 +350,7 @@ export default {
                 "hgue":"hgue",
                 "mwi":"mwi"
             },
-            lang_list: langs,
-            langInput:'',
             lecturers:'',
-            assessment_method:'',
             workload:'',
             lecture:'',
             seminar:'',
@@ -349,8 +361,7 @@ export default {
             status:'',
             location:'',
             po:'',
-            further_information:'',
-            assessment:''
+            further_information:''
         }
 
     },
