@@ -188,7 +188,7 @@ export default {
 
         <label>module_type</label>
         <select v-model="module_type">
-            <option :value="module_types.type" v-for="(module_types) in module_types_list" :key="module_types.type">{{module_types.type}}</option>
+            <option :value="module_type.type" v-for="(module_types) in module_types_list" :key="module_types.type">{{module_types.type}}</option>
         </select>
 
         <label>credit_points</label>
@@ -232,11 +232,6 @@ export default {
             </option>
         </select>
 
-         
-        <label>language</label>
-        <select v-model="language">
-            <option :value="lang.lang" v-for="(lang) in lang_list" :key="lang.lang">{{lang.lang}}</option>
-        </select>
         
         <label>assessment_method</label>
         <select v-model="assessment_method">
