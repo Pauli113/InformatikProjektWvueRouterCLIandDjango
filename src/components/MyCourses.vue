@@ -12,6 +12,10 @@
 <script>
 
 export default{
-    name: 'MyCourses'
+    name: 'MyCourses',
+    data(){
+
+    },
+    props:['module_code','module_title']
 }
 </script>

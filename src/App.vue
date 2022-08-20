@@ -8,8 +8,7 @@
 </template>
 
 <script>
-//import HelloWorld from './components/HelloWorld.vue'
-//import InputPage from './components/InputPage.vue'
+
 import GithubButton from "./components/GithubButton.vue";
 
 
@@ -28,11 +27,14 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  
 }
 
-#nav {
-  width: 100%;
-  overflow: auto;
+
+#app nav {
+    margin: 30px;
+    width:100%;
+    float: left;
+    display:block;
 }
 </style>

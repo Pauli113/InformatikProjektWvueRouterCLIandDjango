@@ -5,8 +5,11 @@
 
 <script>
 
+<style>
+text-align:center
+</style>
+
 import ModuleForm from './ModuleForm.vue'
-//import NavBar from './NavBar.vue'
 
 
 

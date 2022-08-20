@@ -6,7 +6,6 @@ import MyCourses from './components/MyCourses.vue'
 
 
 const routes = [
-    //{path:'/courses'}
     {path:'/input',component:InputPage},
     {path:'/mycourses',component:MyCourses}
 ]

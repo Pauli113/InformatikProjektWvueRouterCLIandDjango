@@ -1,12 +1,15 @@
-de:
-  de_label: Deutsch
+ger:
+  ger_label: deutsch
   en_label: german
+  
+
 
 en:
-  de_label: Englisch
+  ger_label: deutsch
   en_label: english
 
-de_en:
-  de_label: Deutsch und Englisch
+
+ger_en:
+  ger_label: deutsch und englisch
   en_label: german and english
 

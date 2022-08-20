@@ -176,7 +176,7 @@ export default {
 -->
 
 <template>
-    <form @submit.prevent="handleSubmit()">
+    <form>
         <label>module_code</label>
         <input type="module_code" v-model="module_code">
 
@@ -195,10 +195,9 @@ export default {
         <label>credit_points</label>
         <input type="credit_points" v-model="credit_points">
 
-        <label>language</label>
+        <label for="lang">language</label>
         <select v-model="language">
-            <option value="de">Deutsch</option>
-            <option value="eng">Englisch</option>
+            <option :value="lang.lang" v-for="(lang) in lang_list" :key="lang.lang">{{lang.lang}}</option>
         </select>
         
 
@@ -287,14 +286,14 @@ export default {
         <input type="further_information" v-model="further_information" id="furtherInformation">
 
 
-        <button>Modul hinzufügen bzw ändern</button>
+        <button @click.prevent="handleSubmit" >Modul hinzufügen bzw ändern</button>
     </form>
     
     
 </template>
 
 <script>
-
+let langs = require('../data/lang.js')
 export default {
     components:{
                 
@@ -336,7 +335,8 @@ export default {
                 "hgue":"hgue",
                 "mwi":"mwi"
             },
-            lang_list:[],
+            lang_list: langs,
+            langInput:'',
             lecturers:'',
             assessment_method:'',
             workload:'',
@@ -357,24 +357,13 @@ export default {
     methods:{
         handleSubmit(){
             alert("Modul hinzufügt bzw geändert")
-            const fs = require('fs')
+            //const fs = require('fs')
 
-            const lang = fs.readFileSync('./data/lang.yaml', {encoding: 'utf-8'});
-            console.log(lang);
-
-            const yaml = require('js-yaml');
+            //const lang = fs.readFileSync('./data/lang.yaml', {encoding: 'utf-8'});
+            //console.log(lang);
             
 
-            // Get document, or throw exception on error
-            try {
-                const doc = yaml.load(fs.readFileSync('./data/lang.yaml', 'utf8'));
-                //console.log(doc);
-                //todo parse string
-                const langString = String(doc)
-                console.log(langString)
-            } catch (e) {
-                console.log(e);
-            }
+            
         },
         assignValues(){
             
@@ -382,7 +371,22 @@ export default {
         fillModuleArray(){
             
         }
-    }
+    },
+
+      beforeCreate(){
+            /*const lang = this.loadLang()
+            for(let i = 0; i<lang.length;i++){
+                this.lang_list.push(e)
+            }*/
+        },
+        mounted(){},
+        updated(){
+            //todo
+            //parse yaml and fill array
+            //this.loadLang()
+        }
+
+    
 }
 </script>
 
