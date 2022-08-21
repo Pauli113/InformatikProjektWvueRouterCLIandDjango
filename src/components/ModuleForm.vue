@@ -214,22 +214,21 @@ export default {
         </select>
         
         <label>frequency</label>
-        <select v-model="frequency"></select>
+        <select v-model="frequency">
+            <option :value="season.season" v-for="(season) in seasons_list" :key="season.season">{{season.season}}</option>
+        </select>
 
         
      
         <p>responsibilities</p>
         <label>coordinator</label>
         <select v-model="coordinator">
-            <option v-for="(item,index) in person_list" :value="index" v-bind:key="index">
-            {{item}}
-            </option>
+            <option :value="person.person" v-for="(person) in person_list" :key="person.person">{{person.person}}</option>
         </select>
+
         <label>lecturers</label>
         <select v-model="lecturers">
-            <option v-for="(item,index) in person_list" :value="index" v-bind:key="index">
-            {{item}}
-            </option>
+            <option :value="person.person" v-for="(person) in person_list" :key="person.person">{{person.person}}</option>
         </select>
 
         
@@ -262,18 +261,12 @@ export default {
 
         <label>status</label>
         <select v-model="status">
-            <option value="1">active</option>
-            <option value="2">inactive</option>
+            <option :value="status.status" v-for="(status) in status_list" :key="status.status">{{status.status}}</option>
         </select>
 
         <label>location</label>
         <select v-model="location">
-            <option value="location.cgn_deutz">location.cgn_deutz</option>
-            <option value="location.cgn_kalk">location.cgn_kalk</option>
-            <option value="location.cgn_muelheim">location.cgn_muelheim</option>
-            <option value="location.cgn_cgn_suedstadt">location.cgn_suedstadt</option>
-            <option value="location.gm">location.gm</option>
-            <option value="location.lvk">location.lvk</option>
+            <option :value="location.location" v-for="(location) in location_list" :key="location.location">{{location.location}}</option>
         </select>
 
         <label>po</label>
@@ -297,6 +290,10 @@ export default {
 let langs = require('../data/lang.js')
 let assessmentMethods = require('../data/assessment.js')
 let moduleTypes = require('../data/type.js')
+let locations = require('../data/location.js')
+let seasons = require('../data/season.js')
+let status_file = require('../data/status.js')
+let persons = require('../data/person.js')
 export default {
     components:{
              
@@ -316,36 +313,20 @@ export default {
             //module type list
             module_type:'',
             module_types_list: moduleTypes,
-            //
+            //location
+            location:'',
+            location_list: locations,
+            //season
+            season:'',
+            seasons_list: seasons,
+            //status
+            status:'',
+            status_list: status_file,
             duration_of_module:'',
             recommended_semester:'',
-            frequency:'',
+            //person
             coordinator: '',
-            person_list:{
-                "all":"all",
-                "nn":"nn",
-                "tbb":"tbb",
-                "sbe":"sbe",
-                "bbe":"bbe",
-                "mboe":"mboe",
-                "hkl":"hkl",
-                "sku":"sku",
-                "ama":"ama",
-                "psc":"psc",
-                "fvi":"fvi",
-                "ska":"ska",
-                "wko":"wko",
-                "mei":"mei",
-                "cko":"cko",
-                "lkoe":"lkoe",
-                "men":"men",
-                "tkl":"tkl",
-                "hfa":"hfa",
-                "mza":"mza",
-                "hst":"hst",
-                "hgue":"hgue",
-                "mwi":"mwi"
-            },
+            person_list: persons,
             lecturers:'',
             workload:'',
             lecture:'',
@@ -354,8 +335,6 @@ export default {
             self_study:'',
             recommended_prerequisites:'',
             required_prerequisites:'',
-            status:'',
-            location:'',
             po:'',
             further_information:''
         }

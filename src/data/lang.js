@@ -1,11 +1,11 @@
 module.exports = [
     {
-    "lang":"deutsch"
+    "lang":"german"
     },
     {
-    "lang":"englisch"
+    "lang":"english"
     },
     {
-     "lang":"deutsch und englisch"   
+     "lang":"german and english"   
     }
 ]

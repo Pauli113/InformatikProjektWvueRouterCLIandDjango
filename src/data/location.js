@@ -6,6 +6,9 @@ module.exports = [
     "location":"Deutz"  
     },
     {
-    "location":"Remote / Online"    
+    "location":"remote / online"    
+    },
+    {
+     "location":"other / variable"   
     }
 ]

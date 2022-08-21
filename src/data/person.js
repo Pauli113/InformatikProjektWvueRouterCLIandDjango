@@ -1,0 +1,36 @@
+module.exports = [
+    {
+        "person":"all"
+    },
+    {
+        "person":"nn"
+    },
+    {
+        "person":"tbb"
+    },
+    {
+        "person":"sbe"
+    },
+    {
+        "person":"bbe"
+    },
+    {
+        "person":"mbl"
+    },
+    {
+        "person":"mboe"
+    },
+    {
+        "person":"hkl"
+    },
+    {
+        "person":"sku"
+    },
+    {
+        "person":"ama"
+    },
+    {
+        "person":"psc"
+    }
+
+]
