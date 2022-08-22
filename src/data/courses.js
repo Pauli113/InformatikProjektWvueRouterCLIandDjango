@@ -1,0 +1,35 @@
+module.exports = [
+    {   
+        "course":"alg"
+    },
+    {
+        "course":"bs"
+    },
+    {
+        "course":"ei"
+    },
+    {
+        "course":"ki"
+    },
+    {
+        "course":"mci"
+    },
+    {
+        "course":"prpr"
+    },
+    {
+        "course":"sgdb"
+    },
+    {
+        "course":"st1"
+    },
+    {
+        "course":"st2"
+    },
+    {
+        "course":"wasp1"
+    },
+    {
+        "course":"wasp2"
+    }
+]
