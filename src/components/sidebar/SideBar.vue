@@ -1,37 +1,33 @@
-<script>
-import SidebarLink from './SidebarLink'
-import { collapsed, toggleSidebar, sidebarWidth } from './state'
 
-export default {
-  props: {},
-  components: { SidebarLink },
-  setup() {
-    return { collapsed, toggleSidebar, sidebarWidth }
-  }
-}
-</script>
 
 <template>
   <div class="sidebar" :style="{ width: sidebarWidth }">
    <h3>
-    <span v-if="collapsed">
-      <div></div>
-    </span>
-    <span v-else>Editor
-    </span>
+    Editor
    </h3>
 
-  <SidebarLink to="/">Editor</SidebarLink>
+
+  <router-link to="/input">Editor</router-link>
+  <router-link to="/myCourses">Meine Kurse</router-link>
+  <router-link to="/login">Login</router-link>
+
+
   
-    <span
-      class="collapse-icon"
-      :class="{ 'rotate-180': collapsed }"
-      @click="toggleSidebar"
-    >
-      <i class="fas fa-angle-double-left"></i>
-    </span>
   </div>
+  <router-view/>
 </template>
+
+<script>
+import {  sidebarWidth } from './state'
+
+export default {
+  props: {},
+  //components: { SidebarLink },
+  setup() {
+    return {  sidebarWidth }
+  }
+}
+</script>
 
 <style>
 :root {
@@ -63,15 +59,5 @@ export default {
 .sidebar h1 {
   height: 2.5em;
 }
-.collapse-icon {
-  position: absolute;
-  bottom: 0;
-  padding: 0.75em;
-  color: rgba(255, 255, 255, 0.7);
-  transition: 0.2s linear;
-}
-.rotate-180 {
-  transform: rotate(180deg);
-  transition: 0.2s linear;
-}
+
 </style>

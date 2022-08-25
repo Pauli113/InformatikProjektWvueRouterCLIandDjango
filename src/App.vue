@@ -1,6 +1,6 @@
 <template>
   <SideBar/>
-  <InputPage/>
+
 </template>
 
 <script>
@@ -8,7 +8,7 @@
 //import GithubButton from "./components/GithubButton.vue";
 import SideBar from "./components/sidebar/SideBar.vue";
 import { sidebarWidth } from '@/components/sidebar/state'
-import InputPage from "./components/InputPage.vue";
+//import InputPage from "./components/InputPage.vue";
 
 
 
@@ -16,8 +16,7 @@ export default {
   name: 'App',
   components: {
     //GithubButton,
-    SideBar,
-    InputPage
+    SideBar
 },
 setup() {
     return { sidebarWidth }
@@ -27,7 +26,7 @@ setup() {
 
 <style>
 #app {
-  text-align:center;
+  /*text-align:center;*/
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
