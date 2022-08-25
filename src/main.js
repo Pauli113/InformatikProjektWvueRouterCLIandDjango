@@ -2,18 +2,18 @@ import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import App from './App.vue'
 import InputPage from './components/InputPage.vue'
-import MyCourses from './components/MyCourses.vue'
+
+import '@fortawesome/fontawesome-free/js/all'
 
 
 
 const routes = [
-    {path:'/input',component:InputPage},
-    {path:'/mycourses',component:MyCourses}
+    {path:'/home',component:InputPage}
 ]
 
 const router = createRouter({
     history: createWebHistory(),
-    routes
+    routes:routes
 })
 
 

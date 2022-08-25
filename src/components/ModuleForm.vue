@@ -1,179 +1,3 @@
-<!--
-
-
-<template>
-    <div class="moduleForm">
-    <form @submit.prevent="handleSubmit()">
-            <CostumInput 
-            v-for="(input,i) in inputs"
-            :key="i"
-            v-model="input.value" 
-            :label="input.label"
-            :type="input.type"
-            />
-            <button>Modul hinzufügen bzw ändern</button>
-    </form> 
-    </div> 
-</template>  
-
-<script>
-
-import CostumInput from './CustomInput.vue'
-import moduleInputs from '../variables'
-
-export default {
-  watch: {
-  },
-  name: 'HelloWorld',
-  props: {
-  },
-  components:{
-      CostumInput
-  },
-  data(){
-      return {
-            inputs: [
-                {
-                    label: 'module_code',
-                    value: '',
-                    type: 'module_code'
-                },
-                {
-                    label: 'module_title',
-                    value: '',
-                    type: 'module_title'
-                },
-                {
-                    label: 'module_abbrev',
-                    value: '',
-                    type: 'module_abbrev'
-                },
-                {
-                    label: 'module_type',
-                    value: '',
-                    type: 'module_type'
-                },
-                {
-                    label: 'credit_points',
-                    value: '',
-                    type: 'credit_points'
-                },
-                {
-                    label: 'language',
-                    value: '',
-                    type: 'language'
-                },
-                {
-                    label: 'duration_of_module',
-                    value: '',
-                    type: 'duration_of_module'
-                },
-                {
-                    label: 'recommended_semester',
-                    value: '',
-                    type: 'recommended_semester'
-                },
-                {
-                    label: 'coordinator',
-                    value: '',
-                    type: 'coordinator'
-                },
-                {
-                    label: 'lecturers',
-                    value: '',
-                    type: 'lecturers'
-                },
-                {
-                    label: 'assessment-methods',
-                    value: '',
-                    type: 'assessment-methods'
-                },
-                {
-                    label: 'workload',
-                    value: '',
-                    type: 'workload'
-                },
-                {
-                    label: 'lecture',
-                    value: '',
-                    type: 'lecture'
-                },
-                {
-                    label: 'seminar',
-                    value: '',
-                    type: 'seminar'
-                },
-                {
-                    label: 'practical',
-                    value: '',
-                    type: 'practical'
-                },
-                {
-                    label: 'exercise',
-                    value: '',
-                    type: 'exercise'
-                },
-                {
-                    label: 'self_study',
-                    value: '',
-                    type: 'self_study'
-                },
-                {
-                    label: 'recommended-prerequisites',
-                    value: '',
-                    type: 'recommended-prerequisites'
-                },
-                {
-                    label: 'status',
-                    value: '',
-                    type: 'status'
-                },
-                {
-                    label: 'location',
-                    value:'',
-                    type:'location'
-                },
-                {
-                    label: 'po',
-                    value: '',
-                    type: 'po'
-                },
-                {
-                    label: 'furtherInformation',
-                    value:'',
-                    type:'furtherInformation'
-                }
-
-            ]
-      }
-  },
-  methods:{
-      handleSubmit(){
-
-            for(let i=0;i<this.inputs.length;i++)
-            {
-                console.log(this.inputs[i].value)
-                moduleInputs.push(this.inputs[i].label,this.inputs[i].value)
-
-            }
-            console.log(moduleInputs)
-            this.moduleToString()
-
-
-               alert("Modul hinzufügt bzw geändert")
-
-        },
-        moduleToString(){
-           const jsonString = JSON.stringify(moduleInputs)
-
-            console.log("Json:")
-            console.log(jsonString)
-            return jsonString
-        }
-  }
-}
-</script>
--->
 
 <template>
     <form>
@@ -222,16 +46,17 @@ export default {
      
         <p>responsibilities</p>
         <label>coordinator</label>
-        <select v-model="coordinator">
+        <select multiple v-model="coordinator">
             <option :value="person.person" v-for="(person) in person_list" :key="person.person">{{person.person}}</option>
         </select>
-
-        <label>lecturers</label>
-        <select v-model="lecturers">
-            <option :value="person.person" v-for="(person) in person_list" :key="person.person">{{person.person}}</option>
-        </select>
-
         
+         <label>lecturers</label>
+        <select multiple v-model="lecturers">
+            <option :value="person.person" v-for="(person) in person_list" :key="person.person">{{person.person}}</option>
+        </select>
+        <pre>{{lecturers}}</pre>
+  
+
         <label>assessment_method</label>
         <select v-model="assessment_method">
             <option :value="assessment.assessment" v-for="(assessment) in assessment_method_list" :key="assessment.assessment">{{assessment.assessment}}</option>
@@ -254,10 +79,14 @@ export default {
         <input type="self_study" v-model="self_study">
 
         <label>recommended_prerequisites</label>
-        <input type="recommended_prerequisites" v-model="recommended_prerequisites">
+        <select v-model="recommended_prerequisites">
+            <option :value="courses.courses" v-for="(courses) in course_list" :key="courses.course">{{courses.course}}</option>
+        </select>
 
         <label>required_prerequisites</label>
-        <input type="required_prerequisites" v-model="required_prerequisites">
+        <select v-model="required_prerequisites">
+            <option :value="courses.courses" v-for="(courses) in course_list" :key="courses.course">{{courses.course}}</option>
+        </select>
 
         <label>status</label>
         <select v-model="status">
@@ -294,6 +123,7 @@ let locations = require('../data/location.js')
 let seasons = require('../data/season.js')
 let status_file = require('../data/status.js')
 let persons = require('../data/person.js')
+let courses = require('../data/courses.js')
 export default {
     components:{
              
@@ -325,30 +155,31 @@ export default {
             duration_of_module:'',
             recommended_semester:'',
             //person
-            coordinator: '',
+            searchPerson:'',
+            coordinator: [],
             person_list: persons,
-            lecturers:'',
+            lecturers:[],
             workload:'',
             lecture:'',
             seminar:'',
             practical:'',
             self_study:'',
-            recommended_prerequisites:'',
-            required_prerequisites:'',
+            //courses
+            recommended_prerequisites:[],
+            required_prerequisites:[],
+            course_list: courses,
             po:'',
-            further_information:''
+            further_information:'',
+            frequency:''
         }
 
     },
+
+    
     methods:{
         handleSubmit(){
             alert("Modul hinzufügt bzw geändert")
-            //const fs = require('fs')
-
-            //const lang = fs.readFileSync('./data/lang.yaml', {encoding: 'utf-8'});
-            //console.log(lang);
-            
-
+         
             
         },
         assignValues(){
@@ -357,45 +188,32 @@ export default {
         fillModuleArray(){
             
         }
-    },
-
-      beforeCreate(){
-            /*const lang = this.loadLang()
-            for(let i = 0; i<lang.length;i++){
-                this.lang_list.push(e)
-            }*/
-        },
-        mounted(){},
-        updated(){
-            //todo
-            //parse yaml and fill array
-            //this.loadLang()
-        }
-
+    }
     
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
+<style scoped>
 
 input {
     margin: 10px;
     display: block;
     border-radius: 7px;
-    width: 100%;
+    width: 80%;
 }
 
 select{
      margin: 10px;
     display: block;
     border-radius: 7px;
-    width: 100%;
+    width: 81%;
 }
 
 #furtherInformation{
         height: 50px;
 }
+
 
 
 </style>
