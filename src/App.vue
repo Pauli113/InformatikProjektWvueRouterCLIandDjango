@@ -1,6 +1,5 @@
 <template>
   <SideBar/>
-
 </template>
 
 <script>
@@ -8,8 +7,6 @@
 //import GithubButton from "./components/GithubButton.vue";
 import SideBar from "./components/sidebar/SideBar.vue";
 import { sidebarWidth } from '@/components/sidebar/state'
-//import InputPage from "./components/InputPage.vue";
-
 
 
 export default {

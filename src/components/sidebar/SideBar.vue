@@ -22,7 +22,6 @@ import {  sidebarWidth } from './state'
 
 export default {
   props: {},
-  //components: { SidebarLink },
   setup() {
     return {  sidebarWidth }
   }
