@@ -43,7 +43,9 @@
         </select>
 
         
-     <p>responsibilities</p>
+   
+
+             <p>responsibilities</p>
         <table class="table">
             <thead>
                 <tr>
@@ -53,13 +55,16 @@
             </thead>
             <tbody>
                   <tr v-for="(person) in person_list" :key="person.person">
-                    <td><input type="checkbox" v-model="coordinators"/>{{person.person}}</td>
-                    <td><input type="checkbox" v-model="lecturers"/>{{person.person}}</td>
+                    <td><input type="checkbox" v-model="coordinators" :value="person.person"/>{{person.person}}</td>
+                    <td><input type="checkbox" v-model="lecturers" :value="person.person"/>{{person.person}}</td>
                 </tr>
             </tbody>
               
         </table>
+
+        <pre>{{coordinators}}</pre>
         
+       
     
   
 
@@ -85,10 +90,7 @@
         <input type="self_study" v-model="self_study">
 
      
-        <!--todo add courses like in person example-->
-        <!--
-            
-        -->
+        
         <p>prerequisites</p>
         <table class="table">
             <thead>
@@ -99,12 +101,13 @@
             </thead>
             <tbody>
                   <tr v-for="(course) in course_list" :key="course.course">
-                    <td><input type="checkbox" v-model="required_prerequisites"/>{{course.course}}</td>
-                    <td><input type="checkbox" v-model="recommended_prerequisites"/>{{course.course}}</td>
+                    <td><input type="checkbox" v-model="required_prerequisites" :value="course.course"/>{{course.course}}</td>
+                    <td><input type="checkbox" v-model="recommended_prerequisites" :value="course.course"/>{{course.course}}</td>
                 </tr>
             </tbody>
               
-        </table>
+        </table>       
+
         
 
         <label>status</label>
@@ -147,7 +150,7 @@ export default {
     components:{
              
     },
-    props:["person"],
+    
     data(){
         return{
             module_code:'',
@@ -198,7 +201,7 @@ export default {
     methods:{
         handleSubmit(){
             alert("Modul hinzufügt bzw geändert")
-         
+            console.log(this.coordinators)
             
         },
         assignValues(){
@@ -223,7 +226,7 @@ input {
 }
 
 select{
-     margin: 10px;
+    margin: 10px;
     display: block;
     border-radius: 7px;
     width: 80.5%;
