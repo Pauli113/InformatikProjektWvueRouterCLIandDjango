@@ -43,18 +43,24 @@
         </select>
 
         
-     
-        <p>responsibilities</p>
-        <label>coordinator</label>
-        <select multiple v-model="coordinator">
-            <option :value="person.person" v-for="(person) in person_list" :key="person.person">{{person.person}}</option>
-        </select>
+     <p>responsibilities</p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>coordinator</th>
+                    <th>lecturers</th>
+                </tr>
+            </thead>
+            <tbody>
+                  <tr v-for="(person) in person_list" :key="person.person">
+                    <td><input type="checkbox" v-model="coordinators"/>{{person.person}}</td>
+                    <td><input type="checkbox" v-model="lecturers"/>{{person.person}}</td>
+                </tr>
+            </tbody>
+              
+        </table>
         
-         <label>lecturers</label>
-        <select multiple v-model="lecturers">
-            <option :value="person.person" v-for="(person) in person_list" :key="person.person">{{person.person}}</option>
-        </select>
-        <pre>{{lecturers}}</pre>
+    
   
 
         <label>assessment_method</label>
@@ -78,15 +84,28 @@
         <label>self_study</label>
         <input type="self_study" v-model="self_study">
 
-        <label>recommended_prerequisites</label>
-        <select v-model="recommended_prerequisites">
-            <option :value="courses.courses" v-for="(courses) in course_list" :key="courses.course">{{courses.course}}</option>
-        </select>
-
-        <label>required_prerequisites</label>
-        <select v-model="required_prerequisites">
-            <option :value="courses.courses" v-for="(courses) in course_list" :key="courses.course">{{courses.course}}</option>
-        </select>
+     
+        <!--todo add courses like in person example-->
+        <!--
+            
+        -->
+        <p>prerequisites</p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>required</th>
+                    <th>recommended</th>
+                </tr>
+            </thead>
+            <tbody>
+                  <tr v-for="(course) in course_list" :key="course.course">
+                    <td><input type="checkbox" v-model="required_prerequisites"/>{{course.course}}</td>
+                    <td><input type="checkbox" v-model="recommended_prerequisites"/>{{course.course}}</td>
+                </tr>
+            </tbody>
+              
+        </table>
+        
 
         <label>status</label>
         <select v-model="status">
@@ -128,6 +147,7 @@ export default {
     components:{
              
     },
+    props:["person"],
     data(){
         return{
             module_code:'',
@@ -155,8 +175,7 @@ export default {
             duration_of_module:'',
             recommended_semester:'',
             //person
-            searchPerson:'',
-            coordinator: [],
+            coordinators: [],
             person_list: persons,
             lecturers:[],
             workload:'',
@@ -212,6 +231,19 @@ select{
 
 #furtherInformation{
         height: 50px;
+}
+
+.table {
+    width:80%
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-align: left;
 }
 
 

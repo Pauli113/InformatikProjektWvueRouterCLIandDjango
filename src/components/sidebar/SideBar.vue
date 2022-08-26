@@ -7,9 +7,9 @@
    </h3>
 
 
-  <router-link to="/input">Editor</router-link>
-  <router-link to="/myCourses">Meine Kurse</router-link>
-  <router-link to="/login">Login</router-link>
+  <router-link to="/input" class="links">Editor</router-link>
+  <router-link to="/myCourses" class="links">Meine Kurse</router-link>
+  <router-link to="/login" class="links">Login</router-link>
 
 
   
@@ -58,5 +58,11 @@ export default {
 .sidebar h1 {
   height: 2.5em;
 }
+
+.links {
+  color: white;
+}
+
+
 
 </style>

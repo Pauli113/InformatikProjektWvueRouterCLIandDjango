@@ -1,4 +1,7 @@
 module.exports = [
+    {
+        "course":"all"
+    },
     {   
         "course":"alg"
     },
@@ -151,8 +154,5 @@ module.exports = [
     },
     {
         "course":"bas2"
-    }, 
-    {
-        "course":"bas2"
-    },
+    }
 ]
