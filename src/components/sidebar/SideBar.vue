@@ -61,6 +61,7 @@ export default {
 
 .links {
   color: white;
+  margin-top: 20px;
 }
 
 

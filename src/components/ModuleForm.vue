@@ -226,7 +226,7 @@ select{
      margin: 10px;
     display: block;
     border-radius: 7px;
-    width: 81%;
+    width: 80.5%;
 }
 
 #furtherInformation{
@@ -234,7 +234,7 @@ select{
 }
 
 .table {
-    width:80%
+    width:81.5%
 }
 
 table, th, td {
