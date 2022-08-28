@@ -2,13 +2,13 @@
 <template>
     <form>
         <label>module_code</label>
-        <input type="module_code" v-model="module_code">
+        <input type="module_code" v-model="module_code" placeholder="UUID">
 
         <label>module_title</label>
-        <input type="module_title" v-model="module_title">
+        <input type="module_title" v-model="module_title" placeholder="Algorithmik">
 
         <label>module_abbrev</label>
-        <input type="module_abbrev" v-model="module_abbrev">
+        <input type="module_abbrev" v-model="module_abbrev" placeholder="ALG">
 
         <label>module_type</label>
         <select v-model="module_type">
@@ -16,7 +16,7 @@
         </select>
 
         <label>credit_points</label>
-        <input type="credit_points" v-model="credit_points">
+        <input type="credit_points" v-model="credit_points" placeholder="5">
 
         <label>language</label>
         <select v-model="language">
@@ -25,7 +25,7 @@
         
 
         <label>duration_of_module</label>
-        <input type="duration_of_module" v-model="duration_of_module">
+        <input type="duration_of_module" v-model="duration_of_module" placeholder="1">
 
         <label>recommended_semester</label>
         <select v-model="recommended_semester">
@@ -61,10 +61,7 @@
             </tbody>
               
         </table>
-
-        <pre>{{coordinators}}</pre>
-        
-       
+               
     
   
 
@@ -75,19 +72,22 @@
        
 
         <label>workload</label>
-        <input type="workload" v-model="workload">
+        <input type="workload" v-model="workload" placeholder="150">
 
         <label>lecture</label>
-        <input type="lecture" v-model="lecture">
+        <input type="lecture" v-model="lecture" placeholder="36">
 
         <label>seminar</label>
-        <input type="seminar" v-model="seminar">
+        <input type="seminar" v-model="seminar" placeholder="0">
 
         <label>practical</label>
-        <input type="practical" v-model="practical">
+        <input type="practical" v-model="practical" placeholder="18">
+
+        <label>excersice</label>
+        <input type="excersice" v-model="excersice" placeholder="18">
 
         <label>self_study</label>
-        <input type="self_study" v-model="self_study">
+        <input type="self_study" v-model="self_study" placeholder="78">
 
      
         
@@ -127,7 +127,7 @@
         </select>
 
         <label>furtherInformation</label>
-        <input type="further_information" v-model="further_information" id="furtherInformation">
+        <input type="further_information" v-model="further_information" id="furtherInformation" placeholder="## (de) Angestrebte Lernergebnisse:">
 
 
         <button @click.prevent="handleSubmit" >Modul hinzufügen bzw ändern</button>
@@ -186,6 +186,7 @@ export default {
             seminar:'',
             practical:'',
             self_study:'',
+            excersice:'',
             //courses
             recommended_prerequisites:[],
             required_prerequisites:[],
@@ -221,14 +222,12 @@ export default {
 input {
     margin: 10px;
     display: block;
-    border-radius: 7px;
     width: 80%;
 }
 
 select{
     margin: 10px;
     display: block;
-    border-radius: 7px;
     width: 80.5%;
 }
 
@@ -237,7 +236,7 @@ select{
 }
 
 .table {
-    width:81.5%
+    width:81%
 }
 
 table, th, td {
