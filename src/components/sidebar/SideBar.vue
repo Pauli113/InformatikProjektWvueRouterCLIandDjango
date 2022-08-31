@@ -9,8 +9,6 @@
 
   <router-link to="/input" class="links">Editor</router-link>
   <router-link to="/myCourses" class="links">Meine Kurse</router-link>
-  <router-link to="/login" class="links">Login</router-link>
-
 
   
   </div>
