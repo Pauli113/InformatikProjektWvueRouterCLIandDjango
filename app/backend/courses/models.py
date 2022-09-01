@@ -14,8 +14,16 @@ class Course(models.Model):
     recommended_semester = models.IntegerField()
     frequency = models.CharField(max_length=140)
     assessment_methods = models.CharField(max_length=140,default='')
+    workload = models.IntegerField()
+  
+    
 
 
+
+
+    
+  
+ 
     def __str__(self):
         return self.module_title
 

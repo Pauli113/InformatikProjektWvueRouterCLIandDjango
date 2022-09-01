@@ -1,15 +1,10 @@
-from django.shortcuts import render
-from django.http import JsonResponse
+
+
+from rest_framework.viewsets import ModelViewSet
+
 from .models import Course
+from .serializers import CourseSerializer
 
-# Create your views here.
-def index(request):
-    courses = []
-
-    for course in Course.objects.all():
-        courses.append({
-            'moduleCode': course.module_code,
-            'module_title':course.module_title
-        })
-
-        return JsonResponse(courses,safe=False)
+class CoursesViewSet(ModelViewSet):
+    queryset = Course.objects.all()
+    serializer_class = CourseSerializer
