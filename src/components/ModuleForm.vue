@@ -49,7 +49,7 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>coordinator</th>
+                    <th>coordinators</th>
                     <th>lecturers</th>
                 </tr>
             </thead>
