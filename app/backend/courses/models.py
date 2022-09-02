@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.postgres.fields import ArrayField
+
 
 
 # Create your models here.
@@ -13,21 +13,18 @@ class Course(models.Model):
     duration_of_module = models.IntegerField()
     recommended_semester = models.IntegerField()
     frequency = models.CharField(max_length=140)
-    assessment_methods = models.CharField(max_length=140,default='')
+    coordinators = models.TextField(null=True)
+    lecturers = models.TextField(null=True)
+    assessment_method = models.CharField(max_length=140,default='')
     workload = models.IntegerField()
-  
-    
-
-
-
-
-    
-  
- 
-    def __str__(self):
-        return self.module_title
-
-    class Meta:
-        ordering = ['recommended_semester']
-
-
+    lecture = models.IntegerField(default=0)
+    seminar = models.IntegerField(default=0)
+    practical = models.IntegerField(default=0)
+    excercise = models.IntegerField(default=0)
+    self_study = models.IntegerField(default=0)
+    required_prerequisites = models.TextField(null=True)
+    recommended_prerequisites = models.TextField(null=True)
+    status = models.CharField(max_length=140,default='')
+    location = models.CharField(max_length=140,default='')
+    po = models.CharField(max_length=140,default='')
+    furtherInformation = models.CharField(max_length=1000,default='')
