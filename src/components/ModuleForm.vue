@@ -137,6 +137,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 
 let langs = require('../data/lang.js')
 let assessmentMethods = require('../data/assessment.js')
@@ -205,13 +207,10 @@ export default {
         this.createCourse()
        },
        async createCourse(){
-        await fetch('http://localhost:8000/api/courses/',{
-            method:'post',
-            headers:{
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(this.course)
-        })
+        axios.post("http://localhost:8000/api/courses/",this.course)
+        .then(res => (this.courses.push(res.data)))
+        .catch(err => console.log(err))
+        console.log(this.courses)
        }
     }
 }

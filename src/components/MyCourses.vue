@@ -1,7 +1,9 @@
 <template>
   <h1>Meine Kurse</h1>
   <button v-on:click="getCourses">Meine Kurse sehen</button>
-  <p v-for="course in courses" :key="course">{{course}}</p>
+  <div v-for="course in courses" :key="course">
+    <p>{{course}}</p>
+  </div>
 </template>
 
 <script>
