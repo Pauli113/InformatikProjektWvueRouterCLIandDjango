@@ -17,7 +17,6 @@ class Course(models.Model):
     lecturers = models.TextField(null=True)
     assessment_method = models.CharField(max_length=140,default='')
     workload = models.IntegerField()
-    lecture = models.IntegerField(default=0)
     seminar = models.IntegerField(default=0)
     practical = models.IntegerField(default=0)
     excercise = models.IntegerField(default=0)

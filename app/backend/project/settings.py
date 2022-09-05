@@ -54,6 +54,14 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORSE_ORIGIN_WHITELIST = [
+    'http://localhost:8080/input',
+    'http://localhost:8080/myCourses',
+    'http://localhost:8080'
+]
+
 ROOT_URLCONF = 'project.urls'
 
 TEMPLATES = [
