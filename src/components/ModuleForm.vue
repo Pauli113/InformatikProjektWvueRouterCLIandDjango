@@ -55,8 +55,10 @@
             </thead>
             <tbody>
                   <tr v-for="(person) in person_list" :key="person.person">
-                    <td><input type="checkbox" v-model="course.coordinators" :value="person.person"/>{{person.person}}</td>
-                    <td><input type="checkbox" v-model="course.lecturers" :value="person.person"/>{{person.person}}</td>
+                    <td><input type="checkbox" v-model="course.coordinators_list" :value="person.person"/>{{person.person}}</td>
+                    <td><input type="checkbox" v-model="course.lecturers_list" :value="person.person"/>{{person.person}}</td>
+                    
+
                 </tr>
             </tbody>
               
@@ -179,8 +181,11 @@ export default {
             duration_of_module:'',
             recommended_semester:'',
             //person
-            coordinators: [],
-            lecturers:[],
+            coordinators_list: [],
+            corrdinators:'',
+            lecturers:'',
+            lecturers_list:[],
+            //integers
             workload:'',
             lecture:'',
             seminar:'',
