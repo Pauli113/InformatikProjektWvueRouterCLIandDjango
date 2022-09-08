@@ -1,3 +1,4 @@
+import re
 import requests
 import json
 
@@ -22,18 +23,13 @@ def main():
     #f.write(output)
     #f.close()
     print("Daten von API")
-    splitted_string = module_string.split(',')
-   #print("splitted string")
-    #print(splitted_string)
-    for item in splitted_string:
-        res_string = item.replace('[','')
-
-    
-        print(res_string)
-  
-
     mdFile = MdUtils(file_name='Modulhandbuch', title='Modulhandbuch')
-    mdFile.new_paragraph(module_string)
+    mdFile.new_paragraph("---")
+    splitted_string = module_string.split(',')
+    for string in splitted_string:
+        string.replace("[","'")
+        mdFile.new_paragraph(string)
+
     mdFile.create_md_file()
     print("Eingaben wurden verwendet")
   
