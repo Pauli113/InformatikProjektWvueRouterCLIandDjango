@@ -63,6 +63,7 @@
             </tbody>
               
         </table>
+        <pre>{{course.coordinators_list}}</pre>
                
     
   
@@ -182,8 +183,6 @@ export default {
             recommended_semester:'',
             //person
             coordinators_list: [],
-            corrdinators:'',
-            lecturers:'',
             lecturers_list:[],
             //integers
             workload:'',
@@ -212,6 +211,10 @@ export default {
         this.createCourse()
        },
        async createCourse(){
+        this.course.recommended_prerequisites = JSON.stringify(this.course.recommended_prerequisites)
+        this.course.required_prerequisites = JSON.stringify(this.course.required_prerequisites)
+        this.course.lecturers = JSON.stringify(this.course.lecturers_list)
+        this.course.corrdinators = JSON.stringify(this.course.coordinators_list)
         axios.post("http://localhost:8000/api/courses/",this.course)
         .then(res => (this.courses.push(res.data)))
         .catch(err => console.log(err))
