@@ -64,9 +64,7 @@
               
         </table>
         <pre>{{course.coordinators_list}}</pre>
-               
-    
-  
+        <pre>{{course.lecturers_list}}</pre>
 
         <label>assessment_method</label>
         <select v-model="course.assessment_method">
@@ -93,7 +91,7 @@
         <input type="self_study" v-model="course.self_study" placeholder="78">
 
      
-        
+        <!--error-->
         <p>prerequisites</p>
         <table class="table">
             <thead>
@@ -106,10 +104,14 @@
                   <tr v-for="(course) in course_list" :key="course.course">
                     <td><input type="checkbox" v-model="course.required_prerequisites" :value="course.course"/>{{course.course}}</td>
                     <td><input type="checkbox" v-model="course.recommended_prerequisites" :value="course.course"/>{{course.course}}</td>
+                    
+
                 </tr>
             </tbody>
               
-        </table>       
+        </table>   
+        <pre>{{course.required_prerequisites}}</pre> 
+        <pre>{{course.recommended_prerequisites}}</pre>
 
         
 
@@ -130,8 +132,8 @@
         </select>
 
         <label>furtherInformation</label>
-        <input type="further_information" v-model="course.further_information" id="furtherInformation" placeholder="## (de) Angestrebte Lernergebnisse:">
-
+        <input v-model="course.further_information" id="furtherInformation" placeholder="## (de) Angestrebte Lernergebnisse:">
+        <pre>{{course.further_information}}</pre>
 
         <button >Modul hinzufügen bzw ändern</button>
     </form>
@@ -184,6 +186,10 @@ export default {
             //person
             coordinators_list: [],
             lecturers_list:[],
+            //courses
+            //fehler liegt hier daten werden nicht eingeben, check writing
+            required_prerequisites:[],
+            recommended_prerequisites:[],
             //integers
             workload:'',
             lecture:'',
@@ -191,14 +197,9 @@ export default {
             practical:'',
             self_study:'',
             excersice:'',
-            //courses
-            recommended_prerequisites:[],
-            required_prerequisites:[],
             po:'',
             further_information:'',
             frequency:''
-
-            
         }
     }
 
@@ -214,7 +215,7 @@ export default {
         this.course.recommended_prerequisites = JSON.stringify(this.course.recommended_prerequisites)
         this.course.required_prerequisites = JSON.stringify(this.course.required_prerequisites)
         this.course.lecturers = JSON.stringify(this.course.lecturers_list)
-        this.course.corrdinators = JSON.stringify(this.course.coordinators_list)
+        this.course.coordinators = JSON.stringify(this.course.coordinators_list)
         axios.post("http://localhost:8000/api/courses/",this.course)
         .then(res => (this.courses.push(res.data)))
         .catch(err => console.log(err))
