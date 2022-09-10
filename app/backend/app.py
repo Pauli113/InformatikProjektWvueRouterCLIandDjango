@@ -9,8 +9,7 @@ response = requests.get(ulr)
 
 
 def main():
-    #import markdown
-    #output = markdown.markdown(module_string)
+  
     from mdutils.mdutils import MdUtils
     from mdutils import Html
     

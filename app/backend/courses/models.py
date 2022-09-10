@@ -1,6 +1,7 @@
+from email.policy import default
 from django.db import models
 
-
+from jsonfield import JSONField
 
 # Create your models here.
 class Course(models.Model):
@@ -13,16 +14,16 @@ class Course(models.Model):
     duration_of_module = models.IntegerField()
     recommended_semester = models.IntegerField()
     frequency = models.CharField(max_length=140)
-    coordinators = models.TextField(null=True)
-    lecturers = models.TextField(null=True,default='')
+    coordinators = models.JSONField(default='')
+    lecturers = models.JSONField(default='')
     assessment_method = models.CharField(max_length=140,default='')
     workload = models.IntegerField()
     seminar = models.IntegerField(default=0)
     practical = models.IntegerField(default=0)
     excercise = models.IntegerField(default=0)
     self_study = models.IntegerField(default=0)
-    required_prerequisites = models.TextField(null=True,default='')
-    recommended_prerequisites = models.TextField(null=True,default='')
+    required_prerequisites = models.JSONField(default='')
+    recommended_prerequisites = models.JSONField(null=True,default='')
     status = models.CharField(max_length=140,default='')
     location = models.CharField(max_length=140,default='')
     po = models.CharField(max_length=140,default='')
