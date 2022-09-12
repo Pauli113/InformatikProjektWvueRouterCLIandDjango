@@ -3,10 +3,11 @@
   <input placeholder="Kurs suchen" type="text" v-model="query">
   <button v-on:click="getCourses">Meine Kurse suchen</button>
   
- <div v-for="course in courses" :key="course">
-    <p>{{course}}</p>
+ <div v-bind:key="course.id" v-for="course in courses">
+    <p>{{course.id}}</p>
   </div>
   
+<pre>{{courses[0]}}</pre>
   <!--
 <table>
   <thead>

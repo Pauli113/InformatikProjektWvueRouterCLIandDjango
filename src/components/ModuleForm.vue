@@ -58,7 +58,6 @@
                     <td><input type="checkbox" v-model="course.coordinators_list" :value="person.person"/>{{person.person}}</td>
                     <td><input type="checkbox" v-model="course.lecturers_list" :value="person.person"/>{{person.person}}</td>
                     
-
                 </tr>
             </tbody>
               
@@ -93,7 +92,8 @@
      
         <!--error-->
         <p>prerequisites</p>
-        <table class="table">
+        <!--
+                  <table class="table">
             <thead>
                 <tr>
                     <th>required</th>
@@ -102,16 +102,33 @@
             </thead>
             <tbody>
                   <tr v-for="(course) in course_list" :key="course.course">
-                    <td><input type="checkbox" v-model="course.required_prerequisites" :value="course.course"/>{{course.course}}</td>
-                    <td><input type="checkbox" v-model="course.recommended_prerequisites" :value="course.course"/>{{course.course}}</td>
+                    <td><input type="checkbox"  v-model="course.required_prerequisites_list" :value="course.course"/>{{course.course}}</td>
+                    <td><input type="checkbox"  v-model="course.recommended_prerequisites_list" :value="course.course"/>{{course.course}}</td>
                     
 
                 </tr>
             </tbody>
               
         </table>   
-        <pre>{{course.required_prerequisites}}</pre> 
-        <pre>{{course.recommended_prerequisites}}</pre>
+        -->
+        <p>required</p>
+        <select name="courses" id="required_prerequisites" v-model="course.required_prerequisites_list" multiple>
+            <option v-for="(course) in course_list" :key="course.course">{{course.course}}</option>
+        </select>
+
+        <p>recommended</p>
+        <select name="courses" id="required_prerequisites" v-model="course.recommended_prerequisites_list" multiple>
+            <option v-for="(course) in course_list" :key="course.course">{{course.course}}</option>
+        </select>
+
+
+  
+
+        
+
+       
+        <pre>{{course.required_prerequisites_list}}</pre> 
+        <pre>{{course.recommended_prerequisites_list}}</pre>
 
         
 
@@ -188,8 +205,8 @@ export default {
             lecturers_list:[],
             //courses
             //fehler liegt hier daten werden nicht eingeben, check writing
-            required_prerequisites:[],
-            recommended_prerequisites:[],
+            required_prerequisites_list:[],
+            recommended_prerequisites_list:[],
             //integers
             workload:'',
             lecture:'',
@@ -212,8 +229,8 @@ export default {
         this.createCourse()
        },
        async createCourse(){
-        this.course.recommended_prerequisites = JSON.stringify(this.course.recommended_prerequisites)
-        this.course.required_prerequisites = JSON.stringify(this.course.required_prerequisites)
+        this.course.recommended_prerequisites = JSON.stringify(this.course.recommended_prerequisites_list)
+        this.course.required_prerequisites = JSON.stringify(this.course.required_prerequisites_list)
         this.course.lecturers = JSON.stringify(this.course.lecturers_list)
         this.course.coordinators = JSON.stringify(this.course.coordinators_list)
         axios.post("http://localhost:8000/api/courses/",this.course)
