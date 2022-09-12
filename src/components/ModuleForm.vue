@@ -91,7 +91,7 @@
 
      
         <!--error-->
-        <p>prerequisites</p>
+        <p>prerequisites (zur Mehrfachauswahl "command" oder "strg" Taste halten)</p>
         <!--
                   <table class="table">
             <thead>
@@ -111,13 +111,13 @@
               
         </table>   
         -->
-        <p>required</p>
-        <select name="courses" id="required_prerequisites" v-model="course.required_prerequisites_list" multiple>
+        <p>required </p>
+        <select name="courses" id="required_prerequisites" v-model="course.required_prerequisites_list" multiple class="multi">
             <option v-for="(course) in course_list" :key="course.course">{{course.course}}</option>
         </select>
 
         <p>recommended</p>
-        <select name="courses" id="required_prerequisites" v-model="course.recommended_prerequisites_list" multiple>
+        <select name="courses" id="required_prerequisites" v-model="course.recommended_prerequisites_list" multiple class="multi">
             <option v-for="(course) in course_list" :key="course.course">{{course.course}}</option>
         </select>
 
@@ -229,9 +229,13 @@ export default {
         this.createCourse()
        },
        async createCourse(){
+        this.course.recommended_prerequisites_list.forEach((item,i,self) => self[i] = 'module.'+item)
         this.course.recommended_prerequisites = JSON.stringify(this.course.recommended_prerequisites_list)
+        this.course.required_prerequisites_list.forEach((item,i,self) => self[i] = 'module.'+item)
         this.course.required_prerequisites = JSON.stringify(this.course.required_prerequisites_list)
+        this.course.lecturers_list.forEach((item,i,self) => self[i] = 'person.'+item)
         this.course.lecturers = JSON.stringify(this.course.lecturers_list)
+        this.course.coordinators_list.forEach((item,i,self) => self[i] = 'person.'+item)
         this.course.coordinators = JSON.stringify(this.course.coordinators_list)
         axios.post("http://localhost:8000/api/courses/",this.course)
         .then(res => (this.courses.push(res.data)))
@@ -255,6 +259,10 @@ select{
     margin: 10px;
     display: block;
     width: 80.5%;
+}
+
+.multi{
+    height:900px;
 }
 
 #furtherInformation{
