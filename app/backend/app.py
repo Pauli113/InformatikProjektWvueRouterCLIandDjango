@@ -1,9 +1,8 @@
-import re
+
 import requests
 import json
 
 ulr = "http://localhost:8000/api/courses/"
-
 response = requests.get(ulr)
 
 
