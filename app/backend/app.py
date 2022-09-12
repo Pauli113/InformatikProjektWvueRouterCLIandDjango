@@ -17,7 +17,7 @@ def main():
     mdFile = MdUtils(file_name='Modulhandbuch', title='Modulhandbuch')
     mdFile.new_paragraph("---")
     module_string = response.text
-    module_string = module_string.replace('[','').replace(']','').replace('{','').replace('}','').replace('"','')
+    module_string = module_string.replace('[','').replace(']','').replace('{','').replace('}','').replace('"','').replace('\\','')
     print(module_string)
     mdFile.new_paragraph(module_string)
 
