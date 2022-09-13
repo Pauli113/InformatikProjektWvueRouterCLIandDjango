@@ -237,6 +237,7 @@ export default {
         this.course.lecturers = JSON.stringify(this.course.lecturers_list)
         this.course.coordinators_list.forEach((item,i,self) => self[i] = 'person.'+item)
         this.course.coordinators = JSON.stringify(this.course.coordinators_list)
+        this.further_information = this.further_information + '---'
         axios.post("http://localhost:8000/api/courses/",this.course)
         .then(res => (this.courses.push(res.data)))
         .catch(err => console.log(err))
