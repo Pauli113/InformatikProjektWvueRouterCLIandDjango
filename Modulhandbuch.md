@@ -366,3 +366,143 @@ status:inactive
 location:Gummersbach
 po:2
 further_information:halo
+id:34
+module_code:test1
+module_title:test1
+module_abbrev:test1
+module_type:elective course
+credit_points:1
+language:german and english
+duration_of_module:1
+recommended_semester:3
+frequency:summer term
+lecturers_list:person.tbb
+person.bbe
+coordinators_list:person.nn
+person.sbe
+assessment_method:Präsentation
+workload:21
+seminar:1
+practical:32
+excercise:0
+self_study:12
+required_prerequisites_list:module.ba-kolloquium
+module.pits
+recommended_prerequisites_list:module.ktn
+module.epm
+status:inactive
+location:Deutz
+po:2
+further_information:hallo
+id:35
+module_code:test1
+module_title:test1
+module_abbrev:test1
+module_type:elective course
+credit_points:1
+language:german and english
+duration_of_module:1
+recommended_semester:3
+frequency:summer term
+lecturers_list:person.person.tbb
+person.person.bbe
+coordinators_list:person.person.nn
+person.person.sbe
+assessment_method:Präsentation
+workload:21
+seminar:1
+practical:32
+excercise:0
+self_study:12
+required_prerequisites_list:module.module.ba-kolloquium
+module.module.pits
+recommended_prerequisites_list:module.module.ktn
+module.module.epm
+status:inactive
+location:Deutz
+po:2
+further_information:hallo
+id:36
+module_code:test1
+module_title:test1
+module_abbrev:test1
+module_type:elective course
+credit_points:1
+language:german and english
+duration_of_module:1
+recommended_semester:3
+frequency:summer term
+lecturers_list:person.person.person.tbb
+person.person.person.bbe
+coordinators_list:person.person.person.nn
+person.person.person.sbe
+assessment_method:Präsentation
+workload:21
+seminar:1
+practical:32
+excercise:0
+self_study:12
+required_prerequisites_list:module.module.module.ba-kolloquium
+module.module.module.pits
+recommended_prerequisites_list:module.module.module.ktn
+module.module.module.epm
+status:inactive
+location:Deutz
+po:2
+further_information:hallo
+id:37
+module_code:ha
+module_title:ha
+module_abbrev:ha
+module_type:elective course
+credit_points:1
+language:german and english
+duration_of_module:12
+recommended_semester:3
+frequency:summer term
+lecturers_list:person.all
+coordinators_list:person.all
+assessment_method:Schriftliche Prüfungen im Antwortwahlverfahren
+workload:2
+seminar:2
+practical:2
+excercise:0
+self_study:2
+required_prerequisites_list:module.IT-Betrieb und Service-Management
+module.gam
+recommended_prerequisites_list:module.iug
+module.bs1
+status:inactive
+location:Deutz
+po:2
+further_information:hallo
+id:38
+module_code:überschrift test
+module_title:überschrift test
+module_abbrev:überschrift test
+module_type:mandatory
+credit_points:1
+language:german
+duration_of_module:1
+recommended_semester:1
+frequency:winter term
+lecturers_list:person.tbb
+person.mbl
+coordinators_list:person.nn
+person.sbe
+assessment_method:Präsentation
+workload:2
+seminar:2
+practical:21
+excercise:0
+self_study:2
+required_prerequisites_list:module.bwl2
+module.ma2
+module.gam
+recommended_prerequisites_list:module.imp
+module.bs1
+module.gam
+status:inactive
+location:Deutz
+po:2
+further_information:##test
