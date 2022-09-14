@@ -149,7 +149,7 @@
         </select>
 
         <label>furtherInformation</label>
-        <input v-model="course.further_information" id="furtherInformation" placeholder="## (de) Angestrebte Lernergebnisse:">
+        <input v-model="course.further_information" id="furtherInformation" placeholder="Für Überschriften ein ## und ein Leerzeichen vor den Text hängen">
         <pre>{{course.further_information}}</pre>
 
         <button >Modul hinzufügen bzw ändern</button>
@@ -229,15 +229,17 @@ export default {
         this.createCourse()
        },
        async createCourse(){
-        this.course.recommended_prerequisites_list.forEach((item,i,self) => self[i] = 'module.'+item)
+        this.course.recommended_prerequisites_list.forEach((item,i,self) => self[i] = '- module.'+item)
         this.course.recommended_prerequisites = JSON.stringify(this.course.recommended_prerequisites_list)
-        this.course.required_prerequisites_list.forEach((item,i,self) => self[i] = 'module.'+item)
+        this.course.required_prerequisites_list.forEach((item,i,self) => self[i] = '- module.'+item)
         this.course.required_prerequisites = JSON.stringify(this.course.required_prerequisites_list)
         this.course.lecturers_list.forEach((item,i,self) => self[i] = 'person.'+item)
         this.course.lecturers = JSON.stringify(this.course.lecturers_list)
         this.course.coordinators_list.forEach((item,i,self) => self[i] = 'person.'+item)
         this.course.coordinators = JSON.stringify(this.course.coordinators_list)
+        this.course.po = '##' + this.course.po
         this.further_information = this.further_information + '---'
+        this.course.status = 'status.' + this.course.status
         axios.post("http://localhost:8000/api/courses/",this.course)
         .then(res => (this.courses.push(res.data)))
         .catch(err => console.log(err))
