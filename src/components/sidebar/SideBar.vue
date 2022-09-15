@@ -1,14 +1,13 @@
 
-
 <template>
-  <div class="sidebar" :style="{ width: sidebarWidth }">
+  <div class="sidebar">
    <h3>
     Editor
    </h3>
 
 
   <router-link to="/input" class="links">Editor</router-link>
-  <router-link to="/myCourses" class="links">Meine Kurse</router-link>
+  <router-link to="/allCourses" class="links">Alle Kurse</router-link>
 
   
   </div>
@@ -16,14 +15,7 @@
 </template>
 
 <script>
-import {  sidebarWidth } from './state'
 
-export default {
-  props: {},
-  setup() {
-    return {  sidebarWidth }
-  }
-}
 </script>
 
 <style>
@@ -51,6 +43,8 @@ export default {
 
   display: flex;
   flex-direction: column;
+
+  width: 180px;
 
 }
 .sidebar h1 {

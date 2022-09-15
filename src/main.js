@@ -5,13 +5,11 @@ import { createRouter, createWebHistory } from 'vue-router'
 import App from './App.vue'
 import InputPage from '@/components/InputPage.vue'
 import MyCourses from '@/components/MyCourses.vue'
-import LoginPage from '@/components/LoginPage.vue'
 
 
 const routes = [
     {path:'/input',name:'Input', component: InputPage},
-    {path:'/myCourses',name:'MyCourses', component: MyCourses},
-    {path:'/login',name:'LoginPage', component: LoginPage}
+    {path:'/allCourses',name:'MyCourses', component: MyCourses}
 ]
 
 const router = createRouter({

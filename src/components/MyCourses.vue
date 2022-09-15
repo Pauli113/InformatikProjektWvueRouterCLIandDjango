@@ -1,27 +1,10 @@
 <template>
-  <h1>Meine Kurse</h1>
-  <input placeholder="Kurs suchen" type="text" v-model="query">
-  <button v-on:click="getCourses">Meine Kurse suchen</button>
-  
- <div v-bind:key="course.id" v-for="course in courses">
-    <p>{{course.id}}</p>
-  </div>
-  
-<pre>{{courses[0]}}</pre>
-  <!--
-<table>
-  <thead>
-    <tr>
-      <td>Kurse</td>
-    </tr>
-  </thead>
-  <tbody>
-    <tr v-for="(course,index) in courses" :key="index">
-    </tr>
+  <h1>Alle Kurse</h1>
 
-  </tbody>
- </table>
-  -->
+  
+  <pre>{{courses[0]}}</pre>
+
+
  
 </template>
 
@@ -32,8 +15,7 @@ import axios from 'axios';
   
     data(){
       return {
-        courses:[],
-        query:''
+        courses:[]
       }
     },
     beforeCreate() {
@@ -41,15 +23,7 @@ import axios from 'axios';
         .then(res => (this.courses.push(res.data)))
         .catch(err => console.log(err))
         console.log(this.courses)
-    },
-    getCourses(){
-      return this.courses.filter((course)=>
-        course.toLowerCase().includes(this.query.value.toLowerCase())
-      )
     }
-
-
-
    
   }
 </script>
