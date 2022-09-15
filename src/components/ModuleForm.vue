@@ -62,8 +62,7 @@
             </tbody>
               
         </table>
-        <pre>{{course.coordinators_list}}</pre>
-        <pre>{{course.lecturers_list}}</pre>
+      
 
         <label>assessment_method</label>
         <select v-model="course.assessment_method">
@@ -121,17 +120,6 @@
             <option v-for="(course) in course_list" :key="course.course">{{course.course}}</option>
         </select>
 
-
-  
-
-        
-
-       
-        <pre>{{course.required_prerequisites_list}}</pre> 
-        <pre>{{course.recommended_prerequisites_list}}</pre>
-
-        
-
         <label>status</label>
         <select v-model="course.status">
             <option :value="status.status" v-for="(status) in status_list" :key="status.status">{{status.status}}</option>
@@ -171,9 +159,6 @@ let status_file = require('../data/status.js')
 let persons = require('../data/person.js')
 let courses = require('../data/courses.js')
 export default {
-    components:{
-             
-    },
     
     data(){
         return{
@@ -240,6 +225,7 @@ export default {
         this.course.po = '##' + this.course.po
         this.further_information = this.further_information + '---'
         this.course.status = 'status.' + this.course.status
+        this.course.location = 'location.' + this.course.location
         axios.post("http://localhost:8000/api/courses/",this.course)
         .then(res => (this.courses.push(res.data)))
         .catch(err => console.log(err))
