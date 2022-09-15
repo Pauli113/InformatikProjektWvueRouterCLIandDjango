@@ -230,6 +230,7 @@ export default {
         .then(res => (this.courses.push(res.data)))
         .catch(err => console.log(err))
         console.log(this.courses)
+        alert("Kurs wurde erstellt " + this.course.module_code)
        }
     }
 }
