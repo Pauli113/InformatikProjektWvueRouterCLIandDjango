@@ -3,7 +3,8 @@ import requests
 import json
 
 ulr = "http://localhost:8000/api/courses/"
-response = requests.get(ulr)
+p = {'fields': "module_code,module_title,module_abbrev,module_type,credit_points,language,duration_of_module,recommended_semester,frequency,lecturers_list,coordinators_list,assessment_method,workload,seminar,practical,excercise,self_study,required_prerequisites_list,recommended_prerequisites_list,status,location,po,further_information"}
+response = requests.get(ulr,params=p)
 
 
 
