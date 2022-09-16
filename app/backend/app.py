@@ -1,6 +1,5 @@
 
 import requests
-import json
 
 ulr = "http://localhost:8000/api/courses/"
 response = requests.get(ulr)
@@ -8,7 +7,6 @@ response = requests.get(ulr)
 def main():
   
     from mdutils.mdutils import MdUtils
-    from mdutils import Html
     
     print("Daten von API")
     mdFile = MdUtils(file_name='Modulhandbuch', title='Modulhandbuch')
