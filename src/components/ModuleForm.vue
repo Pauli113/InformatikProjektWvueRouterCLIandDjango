@@ -138,7 +138,6 @@
 
         <label>furtherInformation</label>
         <input v-model="course.further_information" id="furtherInformation" placeholder="Für Überschriften ein ## und ein Leerzeichen vor den Text hängen">
-        <pre>{{course.further_information}}</pre>
 
         <button >Modul hinzufügen bzw ändern</button>
     </form>
@@ -189,7 +188,6 @@ export default {
             coordinators_list: [],
             lecturers_list:[],
             //courses
-            //fehler liegt hier daten werden nicht eingeben, check writing
             required_prerequisites_list:[],
             recommended_prerequisites_list:[],
             //integers
@@ -222,18 +220,20 @@ export default {
         this.course.lecturers = JSON.stringify(this.course.lecturers_list)
         this.course.coordinators_list.forEach((item,i,self) => self[i] = 'person.'+item)
         this.course.coordinators = JSON.stringify(this.course.coordinators_list)
-        this.course.po = '##' + this.course.po
         this.further_information = this.further_information + '---'
         this.course.status = 'status.' + this.course.status
         this.course.location = 'location.' + this.course.location
+        this.course.module_abbrev = this.course.module_abbrev.toUpperCase()
+        this.course.module_type = 'module_type.' + this.course.module_type
+        this.course.language = 'lang.' + this.course.language
+        this.course.frequency = 'season.' + this.course.frequency
+        this.course.po = '## po:' + this.course.po
         axios.post("http://localhost:8000/api/courses/",this.course)
         .then(res => (this.courses.push(res.data)))
         .catch(err => console.log(err))
         console.log(this.courses)
         alert("Kurs wurde erstellt " + this.course.module_code)
         // add &nbsp to lecture,seminar,selfstudy usw;
-        // add module_type + '' to module type
-        // add toUpper to Abbrev
        }
     }
 }

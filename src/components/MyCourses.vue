@@ -3,8 +3,6 @@
 
   
   <pre>{{courses[0]}}</pre>
-
-
  
 </template>
 
