@@ -231,6 +231,9 @@ export default {
         .catch(err => console.log(err))
         console.log(this.courses)
         alert("Kurs wurde erstellt " + this.course.module_code)
+        // add &nbsp to lecture,seminar,selfstudy usw;
+        // add module_type + '' to module type
+        // add toUpper to Abbrev
        }
     }
 }
