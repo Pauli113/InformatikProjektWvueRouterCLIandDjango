@@ -132,8 +132,8 @@
 
         <label>po</label>
         <select v-model="course.po">
-            <option value="1">PO1</option>
-            <option value="2">PO2</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
         </select>
 
         <label>furtherInformation</label>
@@ -199,7 +199,8 @@ export default {
             excersice:'',
             po:'',
             further_information:'',
-            frequency:''
+            frequency:'',
+            linebreak:''
         }
     }
 
@@ -227,19 +228,17 @@ export default {
         this.course.module_type = 'module_type.' + this.course.module_type
         this.course.language = 'lang.' + this.course.language
         this.course.frequency = 'season.' + this.course.frequency
-        this.course.po = '## po:' + this.course.po
+        this.course.linebreak = '--'
         axios.post("http://localhost:8000/api/courses/",this.course)
         .then(res => (this.courses.push(res.data)))
         .catch(err => console.log(err))
         console.log(this.courses)
         alert("Kurs wurde erstellt " + this.course.module_code)
-        // add &nbsp to lecture,seminar,selfstudy usw;
        }
     }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
 input {
