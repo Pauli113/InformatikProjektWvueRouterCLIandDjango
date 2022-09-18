@@ -1,56 +1,59 @@
 module.exports = [
     {
-        "assessment":"Klausurarbeiten"
+        "assessment":"written-exam"
     },
     {
-        "assessment":"Schriftliche Prüfungen im Antwortwahlverfahren"
+        "assessment":"written-exam-answer-choice-method"
     },
     {
-        "assessment":"Mündliche Prüfungen"   
+        "assessment":"oral-exams"   
     },
     {
-        "assessment":"Präsentation" 
+        "assessment":"presentation" 
     },
     {
-        "assessment":"Hausarbeit"
+        "assessment":"home-assignment"
     },
     {
-        "assessment":"Projektarbeit"   
+        "assessment":"project"   
     },
     {
-        "assessment":"Projektdokumentation"   
+        "assessment":"project-documentation"   
     },
     {
-        "assessment":"Lernportfolio"   
+        "assessment":"portfolio"   
     },
     {
-        "assessment":"Praktikumsbericht"   
+        "assessment":"practical-report"   
     },
     {
-        "assessment":"Praxissemesterbericht"   
+        "assessment":"practical-semester-report"   
     },
     {
-        "assessment":"Praktikum als Teilnahmenachweis"   
+        "assessment":"practical"   
     },
     {
-        "assessment":"Praktikum als Prüfungsvorleistung"   
+        "assessment":"practical-preconditon"   
     },
     {
-        "assessment":"Schriftlicher Test"   
+        "assessment":"test"   
     },
     {
-        "assessment":"Schriftliche Ausarbeitung"   
+        "assessment":"thesis"   
     },
     {
-        "assessment":"Abstract"   
+        "assessment":"abstract"   
     },
     {
-        "assessment":"Hausarbeit über Ilias E-Assessment"   
+        "assessment":"e-assessmentt"   
     },
     {
-        "assessment":"Multiple-Choice-Tests mit Punkten für die Klausur"   
+        "assessment":"single-choice"   
     },
     {
-        "assessment":"Legt die Dozent*in vor der Veranstaltung fest"   
+        "assessment":"multiple-choice"   
+    },
+    {
+        "assessment":"depends"   
     }
 ]

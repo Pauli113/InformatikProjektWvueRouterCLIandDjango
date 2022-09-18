@@ -154,5 +154,26 @@ module.exports = [
     },
     {
         "course":"bas2"
+    },
+    {
+        "course":"pm"
+    },
+    {
+        "course":"pp"
+    },
+    {
+        "course":"ps"
+    },
+    {
+        "course":"re"
+    },
+    {
+        "course":"ti"
+    },
+    {
+        "course":"ti1"
+    },
+    {
+        "course":"ti2"
     }
 ]

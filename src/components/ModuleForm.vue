@@ -237,6 +237,7 @@ export default {
        }
     }
 }
+//add pos to po list
 </script>
 
 <style scoped>
