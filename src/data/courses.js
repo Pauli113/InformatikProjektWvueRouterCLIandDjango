@@ -2,6 +2,9 @@ module.exports = [
     {
         "course":"all"
     },
+    {
+        "course":"none"
+    },
     {   
         "course":"alg"
     },
