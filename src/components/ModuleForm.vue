@@ -89,27 +89,8 @@
         <input type="self_study" v-model="course.self_study" placeholder="78">
 
      
-        <!--error-->
+       
         <p>prerequisites (zur Mehrfachauswahl "command" oder "strg" Taste halten)</p>
-        <!--
-                  <table class="table">
-            <thead>
-                <tr>
-                    <th>required</th>
-                    <th>recommended</th>
-                </tr>
-            </thead>
-            <tbody>
-                  <tr v-for="(course) in course_list" :key="course.course">
-                    <td><input type="checkbox"  v-model="course.required_prerequisites_list" :value="course.course"/>{{course.course}}</td>
-                    <td><input type="checkbox"  v-model="course.recommended_prerequisites_list" :value="course.course"/>{{course.course}}</td>
-                    
-
-                </tr>
-            </tbody>
-              
-        </table>   
-        -->
         <p>required </p>
         <select name="courses" id="required_prerequisites" v-model="course.required_prerequisites_list" multiple class="multi">
             <option v-for="(course) in course_list" :key="course.course">{{course.course}}</option>
@@ -131,13 +112,12 @@
         </select>
 
         <label>po</label>
-        <select v-model="course.po">
-            <option value="1">1</option>
-            <option value="2">2</option>
+        <select v-model="course.po" multiple>
+            <option :value="po.po" v-for="(po) in po_list" :key="po.po">{{po.po}}</option>
         </select>
 
         <label>furtherInformation</label>
-        <input v-model="course.further_information" id="furtherInformation" placeholder="Für Überschriften ein ## und ein Leerzeichen vor den Text hängen">
+        <input v-model="course.further_information" id="furtherInformation" placeholder="Für Überschriften ein ## und ein Leerzeichen vor den Text hängen, bei Aufzählungen ein * und ein Leerzeichen">
 
         <button >Modul hinzufügen bzw ändern</button>
     </form>
@@ -157,6 +137,7 @@ let seasons = require('../data/season.js')
 let status_file = require('../data/status.js')
 let persons = require('../data/person.js')
 let courses = require('../data/courses.js')
+let pos = require('../data/po.js')
 export default {
     
     data(){
@@ -170,6 +151,7 @@ export default {
             person_list: persons,
             course_list: courses,
             seasons_list: seasons,
+            po_list: pos,
             course:{
             module_code:'',
             module_title:'',
@@ -197,7 +179,7 @@ export default {
             practical:'',
             self_study:'',
             excersice:'',
-            po:'',
+            po:[],
             further_information:'',
             frequency:'',
             linebreak:''
@@ -229,6 +211,7 @@ export default {
         this.course.language = 'lang.' + this.course.language
         this.course.frequency = 'season.' + this.course.frequency
         this.course.linebreak = '--'
+        this.course.po_list = JSON.stringify(this.course.po)
         axios.post("http://localhost:8000/api/courses/",this.course)
         .then(res => (this.courses.push(res.data)))
         .catch(err => console.log(err))
