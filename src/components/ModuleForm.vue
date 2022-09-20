@@ -213,7 +213,7 @@ export default {
         this.course.linebreak = '--'
         this.course.po.forEach((item,i,self) => self[i] = item +',,')
         this.course.po_list = JSON.stringify(this.course.po)
-        axios.post("http://localhost:8000/api/courses/",this.course)
+        axios.post("http://127.0.0.1:8000/api/courses/",this.course)
         .then(res => (this.courses.push(res.data)))
         .catch(err => console.log(err))
         console.log(this.courses)
