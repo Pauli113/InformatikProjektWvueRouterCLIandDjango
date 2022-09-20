@@ -211,6 +211,7 @@ export default {
         this.course.language = 'lang.' + this.course.language
         this.course.frequency = 'season.' + this.course.frequency
         this.course.linebreak = '--'
+        this.course.po.forEach((item,i,self) => self[i] = item +',,')
         this.course.po_list = JSON.stringify(this.course.po)
         axios.post("http://localhost:8000/api/courses/",this.course)
         .then(res => (this.courses.push(res.data)))
