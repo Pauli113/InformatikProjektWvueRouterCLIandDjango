@@ -26,5 +26,5 @@ class Course(models.Model):
     recommended_prerequisites_list = models.JSONField(default='')
     status = models.CharField(max_length=140,default='')
     location = models.CharField(max_length=140,default='')
-    po = models.CharField(max_length=140,default='')
+    po_list = models.JSONField(default='')
     further_information = models.CharField(max_length=1000,default='')
