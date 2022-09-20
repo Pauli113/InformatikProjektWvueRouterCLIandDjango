@@ -4,9 +4,7 @@
 
 <script>
 
-//import GithubButton from "./components/GithubButton.vue";
 import SideBar from "./components/sidebar/SideBar.vue";
-import { sidebarWidth } from '@/components/sidebar/state'
 
 
 export default {
@@ -14,9 +12,7 @@ export default {
   components: {
     SideBar
 },
-setup() {
-    return { sidebarWidth }
-  }
+
 }
 </script>
 
