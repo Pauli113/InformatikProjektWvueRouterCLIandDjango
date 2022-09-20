@@ -34,7 +34,7 @@ recommended_prerequisites_list:- module.itm2
 - module.cga
 status:status.active
 location:location.Gummersbach
-po_list:
+## po:
 ## hallo
 id:2
 module_code:po test
@@ -62,7 +62,7 @@ recommended_prerequisites_list:- module.itm2
 - module.gam
 status:status.active
 location:location.Gummersbach
-po_list:MI4
+## po:MI4
 AI2
 ## test
 id:4
@@ -98,7 +98,7 @@ recommended_prerequisites_list:- module.ba-kolloquium
 - module.imp
 status:status.active
 location:location.Gummersbach
-po_list:WI5
+## po:WI5
 AI2
 ## halo
 id:5
@@ -128,6 +128,6 @@ recommended_prerequisites_list:- module.ef
 - module.sd
 status:status.active
 location:location.Gummersbach
-po_list:AI2
+## po:AI2
 ITM2
 ## test
