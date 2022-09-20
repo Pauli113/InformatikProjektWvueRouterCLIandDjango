@@ -10,7 +10,7 @@ def main():
     
     print("Daten von API")
     module_string = response.text
-    module_string = module_string.replace('[','').replace(']','').replace('{','').replace('}','').replace('"','').replace('\\','').replace('further_information:','').replace('po_list:','## po:').replace(',,','/').replace(',','\n').replace('/',',')
+    module_string = module_string.replace('[','').replace(']','').replace('{','').replace('}','').replace('"','').replace('\\','').replace('further_information:','').replace('po_list:','## po:').replace(',,','/').replace(',','\n').replace('/',',').replace(':',': ')
     ##
     print(module_string)
     choice = input("Sollen die Kurse hinzugefügt werden? J/N")
