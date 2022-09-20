@@ -215,3 +215,90 @@ location: location.Gummersbach
 MI4,
 AI2,
 ## test
+id: 15
+module_code: person test
+module_title: person test
+module_abbrev: PERSON TEST
+module_type: module_type.mandatory
+credit_points: 1
+language: lang.german
+duration_of_module: 1
+recommended_semester: 1
+frequency: season.winter term
+lecturers_list: person.all
+coordinators_list: person.nn
+assessment_method: written-exam
+workload: 23
+seminar: 23
+practical: 23
+excercise: 0
+self_study: 23
+required_prerequisites_list: - module.ebr
+- module.ktn
+- module.ef
+recommended_prerequisites_list: - module.itm2
+- module.avm1
+- module.epm
+status: status.active
+location: location.Gummersbach
+## po: MI4,
+ITM2,
+## test
+id: 18
+module_code: person test
+module_title: person test
+module_abbrev: PERSON TEST
+module_type: module_type.mandatory
+credit_points: 2
+language: lang.german
+duration_of_module: 2
+recommended_semester: 1
+frequency: season.winter term
+lecturers_list: tbb
+coordinators_list: nn
+tbb
+assessment_method: written-exam
+workload: 23
+seminar: 23
+practical: 23
+excercise: 0
+self_study: 23
+required_prerequisites_list: - module.ba-kolloquium
+- module.pps
+recommended_prerequisites_list: - module.wasp2
+- module.cga
+status: status.active
+location: location.Gummersbach
+## po: WI5,
+AI2,
+## person test
+id: 19
+module_code: api tes
+module_title: api test
+module_abbrev: TEST
+module_type: module_type.mandatory
+credit_points: 3
+language: lang.german
+duration_of_module: 2
+recommended_semester: 1
+frequency: season.winter term
+lecturers_list: person.nn
+coordinators_list: person.nn
+person.tbb
+assessment_method: written-exam
+workload: 23
+seminar: 23
+practical: 23
+excercise: 0
+self_study: 23
+required_prerequisites_list: - module.cga
+- module.fddw
+- module.pps
+recommended_prerequisites_list: - module.irg
+- module.ma2
+- module.cga
+status: status.active
+location: location.Gummersbach
+## po: WI5,
+AI2,
+## api test
