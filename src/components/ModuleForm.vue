@@ -172,6 +172,8 @@ export default {
             //courses
             required_prerequisites_list:[],
             recommended_prerequisites_list:[],
+            //pos
+            po:[],
             //integers
             workload:'',
             lecture:'',
@@ -179,7 +181,6 @@ export default {
             practical:'',
             self_study:'',
             excersice:'',
-            po:[],
             further_information:'',
             frequency:'',
             linebreak:''
