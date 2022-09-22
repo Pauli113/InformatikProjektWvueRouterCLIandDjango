@@ -192,6 +192,7 @@ export default {
     
     methods:{
        handleSubmit(){
+        //todo submit only fires when button is clicked
         console.log(this.course)
         this.createCourse()
        },
