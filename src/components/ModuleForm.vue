@@ -211,7 +211,7 @@ export default {
         this.course.language = 'lang.' + this.course.language
         this.course.frequency = 'season.' + this.course.frequency
         this.course.assessment_method + 'assessment-methods.' + this.course.assessment_method
-        this.course.linebreak = '--'
+        this.course.linebreak = '---'
         this.course.po.forEach((item,i,self) => self[i] = item +',,')
         this.course.po_list = JSON.stringify(this.course.po)
         axios.post("http://127.0.0.1:8000/api/courses/",this.course)
