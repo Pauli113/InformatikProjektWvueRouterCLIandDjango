@@ -36,3 +36,36 @@ location: location.Gummersbach
 AI2,
 ## test
 ---
+id: 3
+module_code: linebreak test 2
+module_title: linebreak test 2
+module_abbrev: LINEBREAK TEST 2
+module_type: module_type.mandatory
+credit_points: 2
+language: lang.english
+duration_of_module: 3
+recommended_semester: 4
+frequency: season.winter term
+lecturers_list: person.person.nn
+person.tbb
+coordinators_list: person.person.tbb
+person.person.nn
+person.nn
+assessment_method: oral-exams
+workload: 32
+seminar: 32
+practical: 32
+excercise: 0
+self_study: 32
+required_prerequisites_list: - module.bwl1
+- module.fd
+- module.bas1
+recommended_prerequisites_list: - module.imp
+- module.ktn
+- module.bv
+status: status.active
+location: location.Gummersbach
+## po: WI5,
+AI2,
+## test 2
+---
