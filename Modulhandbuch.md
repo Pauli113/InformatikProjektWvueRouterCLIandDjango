@@ -32,9 +32,7 @@ recommended_prerequisites_list: - module.ebr
 - module.avm1
 status: status.active
 location: location.Gummersbach
-## po: WI5,
-AI2,
-## test
+## po: WI5,AI2,## test
 ---
 id: 3
 module_code: linebreak test 2
@@ -46,10 +44,10 @@ language: lang.english
 duration_of_module: 3
 recommended_semester: 4
 frequency: season.winter term
-lecturers_list: person.person.nn
+lecturers_list: person.nn
 person.tbb
-coordinators_list: person.person.tbb
-person.person.nn
+coordinators_list: person.tbb
+person.nn
 person.nn
 assessment_method: oral-exams
 workload: 32
@@ -65,7 +63,37 @@ recommended_prerequisites_list: - module.imp
 - module.bv
 status: status.active
 location: location.Gummersbach
-## po: WI5,
-AI2,
-## test 2
+## po: WI5,AI2,## test 2
+---
+id: 4
+module_code: courses test
+module_title: courses test
+module_abbrev: COURSES TEST
+module_type: module_type.mandatory
+credit_points: 3
+language: lang.german
+duration_of_module: 2
+recommended_semester: 1
+frequency: season.winter term
+lecturers_list: person.nn
+person.tbb
+coordinators_list: person.nn
+person.tbb
+assessment_method: written-exam
+workload: 23
+seminar: 23
+practical: 23
+excercise: 0
+self_study: 23
+required_prerequisites_list: - module.cga
+- module.gw
+- module.sd
+recommended_prerequisites_list:  module.bwl1
+ module.IT-Betrieb und Service-Management
+ module.ef
+status: status.active
+location: location.Gummersbach
+## po: WI5
+AI2
+## hallo test
 ---
