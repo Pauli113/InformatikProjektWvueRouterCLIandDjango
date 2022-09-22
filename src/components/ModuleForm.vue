@@ -196,7 +196,7 @@ export default {
         this.createCourse()
        },
        async createCourse(){
-        this.course.recommended_prerequisites_list.forEach((item,i,self) => self[i] = '- module.'+item)
+        this.course.recommended_prerequisites_list.forEach((item,i,self) => self[i] = ' module.'+item)
         this.course.recommended_prerequisites = JSON.stringify(this.course.recommended_prerequisites_list)
         this.course.required_prerequisites_list.forEach((item,i,self) => self[i] = '- module.'+item)
         this.course.required_prerequisites = JSON.stringify(this.course.required_prerequisites_list)
@@ -213,7 +213,11 @@ export default {
         this.course.frequency = 'season.' + this.course.frequency
         this.course.assessment_method + 'assessment-methods.' + this.course.assessment_method
         this.course.linebreak = '---'
-        this.course.po.forEach((item,i,self) => self[i] = item +',,')
+        for (let i = 0; i < this.course.po.length;i++){
+            if((i+1) == (this.course.po.length)){
+                this.course.po[i] = this.course.po[i].replace(',','')
+            }
+        }
         this.course.po_list = JSON.stringify(this.course.po)
         axios.post("http://127.0.0.1:8000/api/courses/",this.course)
         .then(res => (this.courses.push(res.data)))
