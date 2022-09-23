@@ -199,7 +199,6 @@ export default {
       }
     },
        handleSubmit(){
-        //todo submit only fires when button is clicked
         console.log(this.course)
         this.createCourse()
        },
@@ -221,6 +220,7 @@ export default {
         this.course.frequency = 'season.' + this.course.frequency
         this.course.assessment_method + 'assessment-methods.' + this.course.assessment_method
         this.course.linebreak = '---'
+        //removes last comma from po array
         for (let i = 0; i < this.course.po.length;i++){
             if((i+1) == (this.course.po.length)){
                 this.course.po[i] = this.course.po[i].replace(',','')
