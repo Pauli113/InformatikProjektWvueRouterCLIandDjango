@@ -115,10 +115,11 @@
         <select v-model="course.po" multiple>
             <option :value="po.po" v-for="(po) in po_list" :key="po.po">{{po.po}}</option>
         </select>
-
-        <label>furtherInformation</label>
-        <input v-model="course.further_information" id="furtherInformation" placeholder="Für Überschriften ein ## und ein Leerzeichen vor den Text hängen, bei Aufzählungen ein * und ein Leerzeichen">
-
+        <!--nedd to add submit prevent when enter is pressed-->
+        <label>furtherInformation (Shift enter für Zeilen umbrüche)</label>
+        <br/>
+        <textarea v-model="course.further_information" id="furtherInformation" placeholder="Für Überschriften ein ## und ein Leerzeichen vor den Text hängen, bei Aufzählungen ein * und ein Leerzeichen" @keydown="inputHandler"></textarea>
+        <br>
         <button >Modul hinzufügen bzw ändern</button>
     </form>
     
@@ -191,6 +192,12 @@ export default {
 
     
     methods:{
+        inputHandler(e) {
+      if (e.keyCode === 13 && !e.shiftKey) {
+        e.preventDefault();
+        this.handleSubmit();
+      }
+    },
        handleSubmit(){
         //todo submit only fires when button is clicked
         console.log(this.course)
@@ -249,7 +256,8 @@ select{
 }
 
 #furtherInformation{
-        height: 50px;
+        height: 200px;
+        width: 81%;
 }
 
 .table {
