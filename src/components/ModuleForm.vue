@@ -115,7 +115,6 @@
         <select v-model="course.po" multiple>
             <option :value="po.po" v-for="(po) in po_list" :key="po.po">{{po.po}}</option>
         </select>
-        <!--nedd to add submit prevent when enter is pressed-->
         <label>furtherInformation (Shift enter für Zeilen umbrüche)</label>
         <br/>
         <textarea v-model="course.further_information" id="furtherInformation" placeholder="Für Überschriften ein ## und ein Leerzeichen vor den Text hängen, bei Aufzählungen ein * und ein Leerzeichen" @keydown="inputHandler"></textarea>
@@ -218,7 +217,7 @@ export default {
         this.course.module_type = 'module_type.' + this.course.module_type
         this.course.language = 'lang.' + this.course.language
         this.course.frequency = 'season.' + this.course.frequency
-        this.course.assessment_method + 'assessment-methods.' + this.course.assessment_method
+        this.course.assessment_method + 'assessment.' + this.course.assessment_method
         this.course.linebreak = '---'
         //removes last comma from po array
         for (let i = 0; i < this.course.po.length;i++){
@@ -227,6 +226,7 @@ export default {
             }
         }
         this.course.po_list = JSON.stringify(this.course.po)
+        //swap out url 
         axios.post("http://127.0.0.1:8000/api/courses/",this.course)
         .then(res => (this.courses.push(res.data)))
         .catch(err => console.log(err))
