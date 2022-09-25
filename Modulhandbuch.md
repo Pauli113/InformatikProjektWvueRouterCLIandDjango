@@ -26,3 +26,7 @@ id: 8,module_code: test,module_title: test,module_abbrev: TEST,module_type: modu
 ## hallo test
      test
 ---
+id: 9,module_code: test,module_title: test,module_abbrev: TEST,module_type: module_type.mandatory,credit_points: 3,language: lang.german,duration_of_module: 2,recommended_semester: 2,frequency: season.winter term,lecturers_list: person.nn,coordinators_list: person.nn,person.tbb,assessment_method: written-exam,workload: 23,seminar: 23,practical: 23,excercise: 0,self_study: 23,required_prerequisites_list: - module.pps,recommended_prerequisites_list:  - module.sd,status: status.active,location: location.Gummersbach
+## po: WI5,AI2
+## hallo test* test
+---
