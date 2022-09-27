@@ -31,4 +31,4 @@ class Course(models.Model):
     linebreak = models.CharField(max_length=140,default='')
 
     class Meta:
-        ordering = ('recommended_semester','module_title')
+        ordering = ('recommended_semester','module_abbrev')
