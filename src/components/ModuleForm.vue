@@ -202,7 +202,7 @@ export default {
         this.createCourse()
        },
        async createCourse(){
-        this.course.recommended_prerequisites_list.forEach((item,i,self) => self[i] = ' module.'+item)
+        this.course.recommended_prerequisites_list.forEach((item,i,self) => self[i] = ' - module.'+item)
         this.course.recommended_prerequisites = JSON.stringify(this.course.recommended_prerequisites_list)
         this.course.required_prerequisites_list.forEach((item,i,self) => self[i] = '- module.'+item)
         this.course.required_prerequisites = JSON.stringify(this.course.required_prerequisites_list)
