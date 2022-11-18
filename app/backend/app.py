@@ -10,13 +10,11 @@ def main():
     
     print("Daten von API")
     module_string = response.text
-    module_string = module_string.replace('[','').replace(']','').replace('{','').replace('}','').replace('"','').replace('\\','').replace('further_information:','').replace('po_list:','## po:').replace(':',': ').replace('linebreak: ','').replace(',## ','\n## ').replace(',---','\n---').replace('---,','---\n').replace('n*','\n    ').replace('*','\n * ').replace(',status:', '\n\nstatus:')
-    ##
+    module_string = module_string.replace('[','').replace(']','').replace('{','').replace('}','').replace('"','').replace('\\','').replace('further_information:','').replace('po_list:','## po:').replace(':',': ').replace('linebreak: ','').replace(',## ','\n## ').replace(',---','\n---').replace('---,','---\n').replace('n*','\n    ').replace('*','\n * ').replace(',status:', '\n\nstatus:').replace(',-', ' -').replace(', -', ' -').replace(',recommended_prerequisites_list:',' recommended_prerequisites_list:')
     print(module_string)
     choice = input("Sollen die Kurse hinzugefügt werden? J/N")
     if choice == 'J':
         mdFile = MdUtils(file_name='Modulhandbuch', title='Modulhandbuch')
-        mdFile.new_paragraph("---")
         mdFile.new_paragraph(module_string)
         mdFile.create_md_file()
         print("Eingaben wurden verwendet") 
